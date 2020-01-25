@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIevlev.ClinicApp.Models", "SIevlev.ClinicApp.Models\SIevlev.ClinicApp.Models.csproj", "{80C97198-07BF-4616-8403-0414AE7704C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIevlev.ClinicApp.Interfaces", "SIevlev.ClinicApp.Interfaces\SIevlev.ClinicApp.Interfaces.csproj", "{B976BF62-0DDF-471C-AE25-8CBCC1211FF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIevlev.ClinicApp.ServiceImpl", "CIevlev.ClinicApp.ServiceImpl\CIevlev.ClinicApp.ServiceImpl.csproj", "{45C0B150-8272-488E-B4ED-C6A38AD77DA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIevlev.ClimicApp.RepositoryImpl", "CIevlev.ClimicApp.RepositoryImpl\CIevlev.ClimicApp.RepositoryImpl.csproj", "{6CAEA5F1-D57D-4F3B-98AB-E8754112A041}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{80C97198-07BF-4616-8403-0414AE7704C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80C97198-07BF-4616-8403-0414AE7704C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80C97198-07BF-4616-8403-0414AE7704C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B976BF62-0DDF-471C-AE25-8CBCC1211FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B976BF62-0DDF-471C-AE25-8CBCC1211FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B976BF62-0DDF-471C-AE25-8CBCC1211FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B976BF62-0DDF-471C-AE25-8CBCC1211FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45C0B150-8272-488E-B4ED-C6A38AD77DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C0B150-8272-488E-B4ED-C6A38AD77DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C0B150-8272-488E-B4ED-C6A38AD77DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C0B150-8272-488E-B4ED-C6A38AD77DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CAEA5F1-D57D-4F3B-98AB-E8754112A041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CAEA5F1-D57D-4F3B-98AB-E8754112A041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CAEA5F1-D57D-4F3B-98AB-E8754112A041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CAEA5F1-D57D-4F3B-98AB-E8754112A041}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
