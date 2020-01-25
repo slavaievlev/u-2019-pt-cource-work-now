@@ -2,6 +2,9 @@
 {
     public enum OrderStatus
     {
-        
+        Created,
+        PendingImplementation,
+        PendingPay,
+        Paid
     }
 }
