@@ -1,6 +1,6 @@
 ﻿namespace SIevlev.ClinicApp.Models
 {
-    public class PayStore
+    public class PayStory
     {
         public int Id { get; set; }
         

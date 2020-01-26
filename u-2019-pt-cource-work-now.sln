@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIevlev.ClinicApp.Interface
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIevlev.ClinicApp.ServiceImpl", "CIevlev.ClinicApp.ServiceImpl\CIevlev.ClinicApp.ServiceImpl.csproj", "{45C0B150-8272-488E-B4ED-C6A38AD77DA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIevlev.ClimicApp.RepositoryImpl", "CIevlev.ClimicApp.RepositoryImpl\CIevlev.ClimicApp.RepositoryImpl.csproj", "{6CAEA5F1-D57D-4F3B-98AB-E8754112A041}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIevlev.ClinicApp.RepositoryImpl", "CIevlev.ClinicApp.RepositoryImpl\CIevlev.ClinicApp.RepositoryImpl.csproj", "{6CAEA5F1-D57D-4F3B-98AB-E8754112A041}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

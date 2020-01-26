@@ -21,9 +21,9 @@ namespace SIevlev.ClinicApp.Models
         public virtual Patient Patient { get; set; }
         
         [ForeignKey("OrderId")]
-        public virtual List<PayStore> PayStores { get; set; }
+        public virtual List<PayStory> PayStores { get; set; }
         
         [ForeignKey("OrderId")]
-        public virtual OrderDoctor OrderDoctor { get; set; }
+        public virtual List<OrderDoctor> OrderDoctor { get; set; }
     }
 }

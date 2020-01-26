@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SIevlev.ClinicApp.Models
 {
@@ -15,6 +16,6 @@ namespace SIevlev.ClinicApp.Models
         public int Price { get; set; }
         
         [ForeignKey("DoctorId")]
-        public virtual OrderDoctor OrderDoctor { get; set; }
+        public virtual List<OrderDoctor> OrderDoctor { get; set; }
     }
 }

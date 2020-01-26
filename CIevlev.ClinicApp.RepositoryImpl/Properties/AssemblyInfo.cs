@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CIevlev.ClimicApp.RepositoryImpl")]
+[assembly: AssemblyTitle("CIevlev.ClinicApp.RepositoryImpl")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CIevlev.ClimicApp.RepositoryImpl")]
+[assembly: AssemblyProduct("CIevlev.ClinicApp.RepositoryImpl")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
