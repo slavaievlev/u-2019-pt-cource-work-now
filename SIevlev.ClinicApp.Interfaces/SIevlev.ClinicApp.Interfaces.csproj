@@ -40,8 +40,8 @@
   <ItemGroup>
     <Compile Include="BindingModel\DoctorBindingModel.cs" />
     <Compile Include="BindingModel\PatientBindingModel.cs" />
-    <Compile Include="Dto\PatientInvoicesRequestDto.cs" />
-    <Compile Include="Dto\PaymentReportRequestDto.cs" />
+    <Compile Include="BindingModel\PatientInvoicesBindingModel.cs" />
+    <Compile Include="BindingModel\PaymentReportBindingModel.cs" />
     <Compile Include="Enums\DocumentType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IDoctorRepository.cs" />
@@ -50,9 +50,8 @@
     <Compile Include="Services\IMailService.cs" />
     <Compile Include="Services\IPatientService.cs" />
     <Compile Include="Services\IReportService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel" />
+    <Compile Include="ViewModel\DoctorViewModel.cs" />
+    <Compile Include="ViewModel\PatientInvoicesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIevlev.ClinicApp.Models\SIevlev.ClinicApp.Models.csproj">

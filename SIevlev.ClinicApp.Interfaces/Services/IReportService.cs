@@ -1,11 +1,11 @@
-using SIevlev.ClinicApp.Interfaces.Dto;
+using SIevlev.ClinicApp.Interfaces.BindingModel;
 
 namespace SIevlev.ClinicApp.Interfaces.Services
 {
     public interface IReportService
     {
-        void GetPatientInvoices(PatientInvoicesRequestDto patientInvoices);
+        void GetPatientInvoices(PatientInvoicesBindingModel patientInvoices);
 
-        void GetPaymentReport(PaymentReportRequestDto paymentReport);
+        void GetPaymentReport(PaymentReportBindingModel paymentReport);
     }
 }

@@ -1,8 +1,8 @@
 using System;
 
-namespace SIevlev.ClinicApp.Interfaces.Dto
+namespace SIevlev.ClinicApp.Interfaces.BindingModel
 {
-    public class PaymentReportRequestDto
+    public class PaymentReportBindingModel
     {
         public DateTime StartAt { get; set; }
         

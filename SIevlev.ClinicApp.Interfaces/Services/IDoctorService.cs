@@ -1,14 +1,15 @@
 using SIevlev.ClinicApp.Interfaces.BindingModel;
+using SIevlev.ClinicApp.Interfaces.ViewModel;
 
 namespace SIevlev.ClinicApp.Interfaces.Services
 {
     public interface IDoctorService
     {
-        void CreateDoctor(DoctorBindingModel doctorBindingModel);
+        DoctorViewModel CreateDoctor(DoctorBindingModel doctorBindingModel);
 
-        void UpdateDoctor(DoctorBindingModel doctorBindingModel);
+        DoctorViewModel UpdateDoctor(DoctorBindingModel doctorBindingModel);
 
-        void GetDoctor(int doctorId);
+        DoctorViewModel GetDoctor(int doctorId);
 
         void DeleteDoctor(int doctorId);
     }

@@ -4,6 +4,8 @@ namespace SIevlev.ClinicApp.Interfaces.Repositories
 {
     public interface IPatientRepository
     {
-        Patient ChangePatient(Patient patient);
+        Patient UpdatePatient(Patient patient);
+
+        Patient GetPatient(int patientId);
     }
 }

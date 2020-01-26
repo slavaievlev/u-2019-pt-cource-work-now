@@ -1,9 +1,9 @@
 using System;
 using SIevlev.ClinicApp.Interfaces.Enums;
 
-namespace SIevlev.ClinicApp.Interfaces.Dto
+namespace SIevlev.ClinicApp.Interfaces.BindingModel
 {
-    public class PatientInvoicesRequestDto
+    public class PatientInvoicesBindingModel
     {
         public int PatientId { get; set; }
         
