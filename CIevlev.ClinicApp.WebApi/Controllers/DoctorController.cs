@@ -22,24 +22,24 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
             return Ok(new ResponseModel(doctorViewModel));
         }
         
-        [HttpGet]
+        [HttpPut]
         public IHttpActionResult UpdateDoctor(DoctorBindingModel doctorBindingModel)
         {
             DoctorViewModel doctorViewModel = _doctorService.UpdateDoctor(doctorBindingModel);
             return Ok(new ResponseModel(doctorViewModel, "Данные доктора успешно обновлены"));
         }
         
-        [HttpGet]
-        public IHttpActionResult DeleteDoctor(int doctorId)
+        [HttpDelete]
+        public IHttpActionResult DeleteDoctor(int id)
         {
-            _doctorService.DeleteDoctor(doctorId);
+            _doctorService.DeleteDoctor(id);
             return Ok(new ResponseModel("Доктор успешно удален"));
         }
         
         [HttpGet]
-        public IHttpActionResult GetDoctor(int doctorId)
+        public IHttpActionResult GetDoctor(int id)
         {
-            DoctorViewModel doctorViewModel = _doctorService.GetDoctor(doctorId);
+            DoctorViewModel doctorViewModel = _doctorService.GetDoctor(id);
             return Ok(new ResponseModel(doctorViewModel));
         }
     }

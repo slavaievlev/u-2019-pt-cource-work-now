@@ -2,25 +2,25 @@ namespace CIevlev.ClinicApp.WebApi.Models
 {
     public class ResponseModel
     {
-        private readonly object _value;
+        public readonly object Value;
 
-        private readonly string _description;
+        public readonly string Description;
 
         public ResponseModel(object value, string description)
         {
-            _value = value;
-            _description = description;
+            Value = value;
+            Description = description;
         }
 
         public ResponseModel(object value)
         {
-            _value = value;
-            _description = null;
+            Value = value;
+            Description = null;
         }
 
         public ResponseModel(string description)
         {
-            _description = description;
+            Description = description;
         }
     }
 }
