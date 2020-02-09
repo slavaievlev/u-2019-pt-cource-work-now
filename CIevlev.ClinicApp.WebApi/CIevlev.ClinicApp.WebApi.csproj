@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -103,6 +104,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CIevlev.ClinicApp.ServiceImpl\CIevlev.ClinicApp.ServiceImpl.csproj">
+      <Project>{45c0b150-8272-488e-b4ed-c6a38ad77da2}</Project>
+      <Name>CIevlev.ClinicApp.ServiceImpl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIevlev.ClinicApp.Interfaces\SIevlev.ClinicApp.Interfaces.csproj">
+      <Project>{b976bf62-0ddf-471c-ae25-8cbcc1211ff0}</Project>
+      <Name>SIevlev.ClinicApp.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
