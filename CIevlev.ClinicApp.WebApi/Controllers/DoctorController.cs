@@ -1,4 +1,5 @@
 using System.Web.Http;
+using CIevlev.ClinicApp.WebApi.Models;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
 using SIevlev.ClinicApp.Interfaces.Services;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
@@ -18,28 +19,28 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
         public IHttpActionResult CreateDoctor(DoctorBindingModel doctorBindingModel)
         {
             DoctorViewModel doctorViewModel = _doctorService.CreateDoctor(doctorBindingModel);
-            return Ok(doctorViewModel);
+            return Ok(new ResponseModel(doctorViewModel));
         }
         
         [HttpGet]
         public IHttpActionResult UpdateDoctor(DoctorBindingModel doctorBindingModel)
         {
             DoctorViewModel doctorViewModel = _doctorService.UpdateDoctor(doctorBindingModel);
-            return Ok(doctorViewModel);
+            return Ok(new ResponseModel(doctorViewModel, "Данные доктора успешно обновлены"));
         }
         
         [HttpGet]
         public IHttpActionResult DeleteDoctor(int doctorId)
         {
             _doctorService.DeleteDoctor(doctorId);
-            return Ok("Доктор успешно удален!");
+            return Ok(new ResponseModel("Доктор успешно удален"));
         }
         
         [HttpGet]
         public IHttpActionResult GetDoctor(int doctorId)
         {
             DoctorViewModel doctorViewModel = _doctorService.GetDoctor(doctorId);
-            return Ok(doctorViewModel);
+            return Ok(new ResponseModel(doctorViewModel));
         }
     }
 }
