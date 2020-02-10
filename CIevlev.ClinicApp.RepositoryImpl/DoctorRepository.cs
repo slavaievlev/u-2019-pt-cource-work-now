@@ -17,7 +17,9 @@ namespace CIevlev.ClinicApp.RepositoryImpl
 
         public Doctor CreateDoctor(Doctor doctor)
         {
-            return _clinicAppContext.Doctors.Add(doctor);
+            var model = _clinicAppContext.Doctors.Add(doctor);
+            _clinicAppContext.SaveChanges();
+            return model;
         }
 
         public Doctor UpdateDoctor(Doctor doctor)
@@ -31,6 +33,8 @@ namespace CIevlev.ClinicApp.RepositoryImpl
                 model.LastName = doctor.LastName;
 
                 _clinicAppContext.SaveChanges();
+
+                return model;
             }
             
             throw new DoctorNotFoundException("Не найден доктор с id = " + doctor.Id);
@@ -54,6 +58,10 @@ namespace CIevlev.ClinicApp.RepositoryImpl
             {
                 model.IsActive = false;
                 model.DeleteAt = DateTime.Now;
+
+                _clinicAppContext.SaveChanges();
+
+                return;
             }
             
             throw new DoctorNotFoundException("Не найден доктор с id = " + doctorId);

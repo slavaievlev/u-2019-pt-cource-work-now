@@ -22,7 +22,8 @@ namespace CIevlev.ClinicApp.ServiceImpl
                 FirstName = doctorBindingModel.FirstName,
                 LastName = doctorBindingModel.LastName,
                 Description = doctorBindingModel.Description,
-                Price = doctorBindingModel.Price
+                Price = doctorBindingModel.Price,
+                IsActive = true
             });
             
             return new DoctorViewModel
@@ -38,6 +39,7 @@ namespace CIevlev.ClinicApp.ServiceImpl
         {
             var doctor = _doctorRepository.UpdateDoctor(new Doctor
             {
+                Id = doctorBindingModel.Id,
                 FirstName = doctorBindingModel.FirstName,
                 LastName = doctorBindingModel.LastName,
                 Description = doctorBindingModel.Description,
@@ -46,6 +48,7 @@ namespace CIevlev.ClinicApp.ServiceImpl
             
             return new DoctorViewModel
             {
+                Id = doctor.Id,
                 FirstName = doctor.FirstName,
                 LastName = doctor.LastName,
                 Description = doctor.Description,
@@ -59,6 +62,7 @@ namespace CIevlev.ClinicApp.ServiceImpl
             
             return new DoctorViewModel
             {
+                Id = doctor.Id,
                 FirstName = doctor.FirstName,
                 LastName = doctor.LastName,
                 Description = doctor.Description,

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace CIevlev.ClinicApp.WebApi
 {
@@ -19,6 +20,9 @@ namespace CIevlev.ClinicApp.WebApi
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
+            // Exceptions handling
+            config.Services.Replace(typeof(IExceptionHandler), new CustomExceptionHandler());
         }
     }
 }
