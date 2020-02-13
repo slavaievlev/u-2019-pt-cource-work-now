@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Input;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
 
 namespace CIevlev.ClinicApp.DesktopClient
@@ -16,6 +17,11 @@ namespace CIevlev.ClinicApp.DesktopClient
                 new DoctorViewModel(2, "Зигмунд Савельев", "", "Отличный доктор!", 1999)
             };
             ListViewDoctors.ItemsSource = doctors;
+        }
+
+        private void ListViewDoctors_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
