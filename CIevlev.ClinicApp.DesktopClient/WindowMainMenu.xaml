@@ -1,4 +1,4 @@
-﻿<Window x:Class="CIevlev.ClinicApp.DesktopClient.MainWindow"
+﻿<Window x:Class="CIevlev.ClinicApp.DesktopClient.WindowMainMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:CIevlev.ClinicApp.DesktopClient"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="WindowMainMenu" Height="350" Width="525"
+        WindowState="Maximized">
     <Window.Resources>
         <system:String x:Key="StrPatientService">Сервис пациентов</system:String>
         <system:String x:Key="StrDoctorService">Сервис врачей</system:String>
@@ -30,9 +31,9 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
-        <Button Grid.Column="0" Grid.Row="1" Content="{StaticResource StrPatientService}" />
-        <Button Grid.Column="1" Grid.Row="1" Content="{StaticResource StrDoctorService}" />
-        <Button Grid.Column="2" Grid.Row="1" Content="{StaticResource StrReportService}" />
-        <Button Grid.Column="3" Grid.Row="1" Content="{StaticResource StrSetting}" />
+        <Button x:Name="ButtonPatientService" Grid.Column="0" Grid.Row="1" Content="{StaticResource StrPatientService}" />
+        <Button x:Name="ButtonDoctorService" Grid.Column="1" Grid.Row="1" Content="{StaticResource StrDoctorService}" />
+        <Button x:Name="ButtonReportService" Grid.Column="2" Grid.Row="1" Content="{StaticResource StrReportService}" />
+        <Button x:Name="ButtonSetting" Grid.Column="3" Grid.Row="1" Content="{StaticResource StrSetting}" />
     </Grid>
 </Window>
