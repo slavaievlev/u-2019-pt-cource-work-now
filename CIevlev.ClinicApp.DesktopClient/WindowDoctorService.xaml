@@ -23,8 +23,9 @@
             <RowDefinition Height="0.82*" />
             <RowDefinition Height="0.08*" />
         </Grid.RowDefinitions>
-        <Border Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,1" />
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+        
+        <!-- Header -->
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="WhiteSmoke">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -32,7 +33,13 @@
             <Image Grid.Column="1" Source="Images/CatGav.png" Width="45" Height="45" Margin="5"
                    HorizontalAlignment="Right" VerticalAlignment="Center" />
             <TextBlock Grid.Column="0" Margin="5, 0, 5, 0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Славик Иевлев" />
+            
+            <Button Grid.Row="0" Grid.Column="0" BorderThickness="0" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="10">
+                <Image Source="Images/LeftArrow.png"/>
+            </Button>
         </Grid>
+        
+        <!-- Doctor list -->
         <Grid Grid.Column="0" Grid.Row="1">
             <ListView x:Name="ListViewDoctors" MouseLeftButtonDown="ListViewDoctors_OnMouseLeftButtonDown">
                 <ListView.ItemTemplate>
@@ -56,19 +63,32 @@
             </ListView>
         </Grid>
         <Button Grid.Row="2" x:Name="ButtonDoctorCreate" Content="Создать" Grid.Column="0" Margin="0,1,0,5" Style="{StaticResource StyleCrudButton}" />
+        
+        <!-- Doctor action -->
         <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.92*" />
                 <RowDefinition Height="0.08*" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Background="WhiteSmoke">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.6*" />
                     <ColumnDefinition Width="0.15*" />
                     <ColumnDefinition Width="0.15*" />
                 </Grid.ColumnDefinitions>
+                
                 <Button x:Name="ButtonDoctorUpdate" Content="Редактировать" Grid.Column="1" Style="{StaticResource StyleCrudButton}" />
                 <Button x:Name="ButtonDoctorDelete" Content="Удалить" Grid.Column="2" Style="{StaticResource StyleCrudButton}" />
+            </Grid>
+            
+            <!-- Doctor infos -->
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Padding="30 20 20 20" FontSize="20" Text="Ленонида Аркадьевна"/>
             </Grid>
         </Grid>
     </Grid>
