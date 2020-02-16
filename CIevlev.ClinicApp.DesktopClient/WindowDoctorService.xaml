@@ -83,12 +83,43 @@
             
             <!-- Doctor infos -->
             <Grid Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.6*" />
+                    <ColumnDefinition Width="0.4*" />
+                </Grid.ColumnDefinitions>
                 
-                <TextBlock Padding="30 20 20 20" FontSize="20" Text="Ленонида Аркадьевна"/>
+                <!-- Left block -->
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Padding="30 20 0 0" FontSize="20" Text="Ленонида Аркадьевна"/>
+                    <TextBlock Grid.Row="1" Padding="30 0 0 0" FontSize="16" Text="Описание замечательного врача"/>
+                    <Border Grid.Row="2" BorderBrush="LightGray" Margin="25 10" BorderThickness="0 1 0 0"/>
+                </Grid>
+                
+                <!-- Right block -->
+                <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1 0 0 0" ></Border>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MinWidth="110" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock Grid.Column="0" Grid.Row="1" Padding="10 5 10 0" Text="Статус:" />
+                    <TextBlock Grid.Column="1" Grid.Row="1" Padding="10 5 10 0" TextAlignment="Right" Text="в отпуске" />
+                    <TextBlock Grid.Column="0" Grid.Row="2" Padding="10 5 10 0" Text="Стоимость услуг:" />
+                    <TextBlock Grid.Column="1" Grid.Row="2" Padding="10 5 10 0" TextAlignment="Right" Text="500" />
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
