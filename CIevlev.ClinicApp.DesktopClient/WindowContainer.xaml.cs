@@ -20,8 +20,7 @@ namespace CIevlev.ClinicApp.DesktopClient
             _previousContent = (UserControl) ContentContainer.Content;
             ContentContainer.Content = newContent;
         }
-
-
+        
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             if (_previousContent != null)

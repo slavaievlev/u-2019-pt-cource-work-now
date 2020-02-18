@@ -21,7 +21,7 @@
             
             <!-- Doctor list -->
             <Grid Grid.Column="0" Grid.Row="0">
-                <ListView x:Name="ListViewDoctors">
+                <ListView x:Name="ListViewDoctors" SelectionChanged="ListViewDoctors_OnSelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate DataType="viewModel:DoctorViewModel">
                             <Grid>
@@ -44,60 +44,11 @@
             </Grid>
             
             <!-- Doctor infos -->
-            <Grid Grid.Column="1" Grid.Row="0">
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.6*" />
-                        <ColumnDefinition Width="0.4*" />
-                    </Grid.ColumnDefinitions>
-                    
-                    <!-- Left block -->
-                    <Grid Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="20" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        
-                        <TextBlock Grid.Row="0" Padding="30 20 0 0" FontSize="20" Text="Ленонида Аркадьевна"/>
-                        <TextBlock Grid.Row="1" Padding="30 0 0 0" FontSize="16" Text="Описание замечательного врача"/>
-                        <Border Grid.Row="2" BorderBrush="LightGray" Margin="25 10" BorderThickness="0 0.8 0 0"/>
-                    </Grid>
-                    
-                    <!-- Right block -->
-                    <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0.8 0 0 0" />
-                    <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" MinWidth="110" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        
-                        <TextBlock Grid.Column="0" Grid.Row="1" Padding="10 5 10 0" Text="Статус:" />
-                        <TextBlock Grid.Column="1" Grid.Row="1" Padding="10 5 10 0" TextAlignment="Right" Text="в отпуске" />
-                        <TextBlock Grid.Column="0" Grid.Row="2" Padding="10 5 10 0" Text="Стоимость услуг:" />
-                        <TextBlock Grid.Column="1" Grid.Row="2" Padding="10 5 10 0" TextAlignment="Right" Text="500" />
-                    </Grid>
-                </Grid>
-            </Grid>
+            <ContentPresenter x:Name="ContentDoctorInfos" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"></ContentPresenter>
             
             <!-- Doctor action -->
-            <Button Grid.Column="0" Grid.Row="1" x:Name="ButtonDoctorCreate" Content="Создать" Margin="0 1" />
-            <Grid Grid.Column="1" Grid.Row="1" Background="WhiteSmoke">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.6*" />
-                    <ColumnDefinition Width="0.15*" />
-                    <ColumnDefinition Width="0.15*" />
-                </Grid.ColumnDefinitions>
-                    
-                <Button x:Name="ButtonDoctorUpdate" Content="Редактировать" Grid.Column="1" Margin="1" />
-                <Button x:Name="ButtonDoctorDelete" Content="Удалить" Grid.Column="2" Margin="1" />
-            </Grid>
+            <Button Grid.Column="0" Grid.Row="1" x:Name="ButtonDoctorCreate" Content="Создать" Margin="0 1"
+                    Click="ButtonDoctorCreate_OnClick"/>
         </Grid>
     </Grid>
 </UserControl>

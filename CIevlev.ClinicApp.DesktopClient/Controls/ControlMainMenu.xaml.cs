@@ -16,7 +16,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
 
         private void ButtonDoctorService_OnClick(object sender, RoutedEventArgs e)
         {
-            _hostWindow.ChangeContent(new ControlDoctorService());
+            _hostWindow.ChangeContent(new ControlDoctorService(_hostWindow));
         }
     }
 }

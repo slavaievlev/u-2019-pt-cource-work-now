@@ -61,6 +61,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApiClient.cs" />
+    <Compile Include="Controls\ControlDoctorCreate.xaml.cs">
+      <DependentUpon>ControlDoctorCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlDoctorInfos.xaml.cs">
+      <DependentUpon>ControlDoctorInfos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ControlDoctorService.xaml.cs">
       <DependentUpon>ControlDoctorService.xaml</DependentUpon>
     </Compile>
@@ -71,6 +77,8 @@
     <Compile Include="WindowContainer.xaml.cs">
       <DependentUpon>WindowContainer.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\ControlDoctorCreate.xaml" />
+    <Page Include="Controls\ControlDoctorInfos.xaml" />
     <Page Include="Controls\ControlDoctorService.xaml" />
     <Page Include="Controls\ControlMainMenu.xaml" />
     <Page Include="WindowContainer.xaml" />

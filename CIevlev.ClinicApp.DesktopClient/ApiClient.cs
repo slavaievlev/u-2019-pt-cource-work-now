@@ -27,5 +27,16 @@ namespace CIevlev.ClinicApp.DesktopClient
 
             throw new Exception("Оу, ошибочка");
         }
+        
+        public static T PostRequest<T, U>(string requestUrl, U model)
+        {
+            var response = HttpClient.PostAsJsonAsync(requestUrl, model);
+            if (response.Result.IsSuccessStatusCode)
+            {
+                return response.Result.Content.ReadAsAsync<T>().Result;
+            }
+
+            throw new Exception("Оу, ошибочка");
+        }
     }
 }
