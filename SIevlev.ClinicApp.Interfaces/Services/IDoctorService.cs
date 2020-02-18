@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
 
@@ -10,6 +11,8 @@ namespace SIevlev.ClinicApp.Interfaces.Services
         DoctorViewModel UpdateDoctor(DoctorBindingModel doctorBindingModel);
 
         DoctorViewModel GetDoctor(int doctorId);
+
+        List<DoctorViewModel> GetDoctors();
 
         void DeleteDoctor(int doctorId);
     }

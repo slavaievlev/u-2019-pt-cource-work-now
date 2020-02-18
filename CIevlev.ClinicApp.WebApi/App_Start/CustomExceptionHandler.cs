@@ -5,8 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
-using CIevlev.ClinicApp.WebApi.Models;
 using SIevlev.ClinicApp.Interfaces.Exceptions;
+using SIevlev.ClinicApp.Interfaces.WebModels;
 
 namespace CIevlev.ClinicApp.WebApi
 {

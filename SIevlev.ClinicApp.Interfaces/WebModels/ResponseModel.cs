@@ -1,4 +1,6 @@
-namespace CIevlev.ClinicApp.WebApi.Models
+using Newtonsoft.Json;
+
+namespace SIevlev.ClinicApp.Interfaces.WebModels
 {
     public class ResponseModel
     {
@@ -6,6 +8,7 @@ namespace CIevlev.ClinicApp.WebApi.Models
 
         public readonly string Description;
 
+        [JsonConstructor]
         public ResponseModel(object value, string description)
         {
             Value = value;

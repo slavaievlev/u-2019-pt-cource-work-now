@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using SIevlev.ClinicApp.Interfaces.Exceptions;
 using SIevlev.ClinicApp.Interfaces.Repositories;
@@ -49,6 +50,11 @@ namespace CIevlev.ClinicApp.RepositoryImpl
             }
             
             throw new DoctorNotFoundException("Не найден доктор с id = " + doctorId);
+        }
+
+        public List<Doctor> GetDoctors()
+        {
+            return _clinicAppContext.Doctors.ToList();
         }
 
         public void DeleteDoctor(int doctorId)

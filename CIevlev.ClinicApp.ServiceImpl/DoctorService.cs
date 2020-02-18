@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
 using SIevlev.ClinicApp.Interfaces.Repositories;
 using SIevlev.ClinicApp.Interfaces.Services;
@@ -68,6 +70,19 @@ namespace CIevlev.ClinicApp.ServiceImpl
                 Description = doctor.Description,
                 Price = doctor.Price
             };
+        }
+
+        public List<DoctorViewModel> GetDoctors()
+        {
+            var doctors = _doctorRepository.GetDoctors();
+
+            return doctors.Select(doctor => new DoctorViewModel(
+                    doctor.Id, 
+                    doctor.FirstName, 
+                    doctor.LastName, 
+                    doctor.Description, 
+                    doctor.Price)
+            ).ToList();
         }
 
         public void DeleteDoctor(int doctorId)

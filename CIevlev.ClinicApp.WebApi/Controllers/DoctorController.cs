@@ -1,8 +1,8 @@
 using System.Web.Http;
-using CIevlev.ClinicApp.WebApi.Models;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
 using SIevlev.ClinicApp.Interfaces.Services;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
+using SIevlev.ClinicApp.Interfaces.WebModels;
 
 namespace CIevlev.ClinicApp.WebApi.Controllers
 {
@@ -41,6 +41,13 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
         {
             DoctorViewModel doctorViewModel = _doctorService.GetDoctor(id);
             return Ok(new ResponseModel(doctorViewModel));
+        }
+        
+        [HttpGet]
+        public IHttpActionResult GetDoctors()
+        {
+            var doctorViewModels = _doctorService.GetDoctors();
+            return Ok(new ResponseModel(doctorViewModels));
         }
     }
 }

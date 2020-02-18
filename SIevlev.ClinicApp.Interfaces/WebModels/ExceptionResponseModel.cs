@@ -1,4 +1,4 @@
-namespace CIevlev.ClinicApp.WebApi.Models
+namespace SIevlev.ClinicApp.Interfaces.WebModels
 {
     public class ExceptionResponseModel
     {

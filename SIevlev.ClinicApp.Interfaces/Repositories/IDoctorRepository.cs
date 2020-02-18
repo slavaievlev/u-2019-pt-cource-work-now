@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using SIevlev.ClinicApp.Models;
 
 namespace SIevlev.ClinicApp.Interfaces.Repositories
@@ -9,6 +10,8 @@ namespace SIevlev.ClinicApp.Interfaces.Repositories
         Doctor UpdateDoctor(Doctor doctor);
 
         Doctor GetDoctor(int doctorId);
+
+        List<Doctor> GetDoctors();
 
         void DeleteDoctor(int doctorId);
     }
