@@ -5,7 +5,7 @@ using CIevlev.ClinicApp.DesktopClient.Web;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
 using SIevlev.ClinicApp.Interfaces.WebModels;
 
-namespace CIevlev.ClinicApp.DesktopClient.Controls
+namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 {
     public partial class ControlDoctorCreate : UserControl
     {

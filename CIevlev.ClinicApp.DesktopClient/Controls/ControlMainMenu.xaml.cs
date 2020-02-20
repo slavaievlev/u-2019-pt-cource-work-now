@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using CIevlev.ClinicApp.DesktopClient.Controls.Doctors;
 
 namespace CIevlev.ClinicApp.DesktopClient.Controls
 {

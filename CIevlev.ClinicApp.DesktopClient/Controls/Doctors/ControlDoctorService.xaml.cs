@@ -7,7 +7,7 @@ using CIevlev.ClinicApp.DesktopClient.Web;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
 using SIevlev.ClinicApp.Interfaces.WebModels;
 
-namespace CIevlev.ClinicApp.DesktopClient.Controls
+namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 {
     public partial class ControlDoctorService : UserControl, IWindowContainer
     {

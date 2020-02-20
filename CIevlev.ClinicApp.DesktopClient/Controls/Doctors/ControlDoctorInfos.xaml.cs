@@ -4,7 +4,7 @@ using CIevlev.ClinicApp.DesktopClient.Web;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
 using SIevlev.ClinicApp.Interfaces.WebModels;
 
-namespace CIevlev.ClinicApp.DesktopClient.Controls
+namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 {
     public partial class ControlDoctorInfos : UserControl
     {
@@ -25,7 +25,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
 
         private void ButtonDoctorUpdate_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            _hostWindow.ChangeContent(new ControlDoctorUpdate(_hostWindow, _doctorViewModel));
         }
 
         private void ButtonDoctorDelete_OnClick(object sender, RoutedEventArgs e)

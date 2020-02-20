@@ -60,17 +60,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\ControlDoctorCreate.xaml.cs">
-      <DependentUpon>ControlDoctorCreate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ControlDoctorInfos.xaml.cs">
-      <DependentUpon>ControlDoctorInfos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ControlDoctorService.xaml.cs">
-      <DependentUpon>ControlDoctorService.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ControlMainMenu.xaml.cs">
       <DependentUpon>ControlMainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Doctors\ControlDoctorCreate.xaml.cs">
+      <DependentUpon>ControlDoctorCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Doctors\ControlDoctorInfos.xaml.cs">
+      <DependentUpon>ControlDoctorInfos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Doctors\ControlDoctorService.xaml.cs">
+      <DependentUpon>ControlDoctorService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Doctors\ControlDoctorUpdate.xaml.cs">
+      <DependentUpon>ControlDoctorUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ResponseModelHelper.cs" />
     <Compile Include="IWindowContainer.cs" />
@@ -82,10 +85,11 @@
     <Compile Include="WindowContainer.xaml.cs">
       <DependentUpon>WindowContainer.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\ControlDoctorCreate.xaml" />
-    <Page Include="Controls\ControlDoctorInfos.xaml" />
-    <Page Include="Controls\ControlDoctorService.xaml" />
     <Page Include="Controls\ControlMainMenu.xaml" />
+    <Page Include="Controls\Doctors\ControlDoctorCreate.xaml" />
+    <Page Include="Controls\Doctors\ControlDoctorInfos.xaml" />
+    <Page Include="Controls\Doctors\ControlDoctorService.xaml" />
+    <Page Include="Controls\Doctors\ControlDoctorUpdate.xaml" />
     <Page Include="WindowContainer.xaml" />
   </ItemGroup>
   <ItemGroup>
