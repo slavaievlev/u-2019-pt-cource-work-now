@@ -24,8 +24,8 @@
                    HorizontalAlignment="Right" VerticalAlignment="Center" />
             <TextBlock Grid.Column="0" Margin="5, 0, 5, 0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Славик Иевлев" />
             
-            <Button Grid.Row="0" Grid.Column="0" BorderThickness="0" Width="45" Height="45" Background="WhiteSmoke" HorizontalAlignment="Left" Padding="10"
-                    Click="ButtonBase_OnClick">
+            <Button x:Name = "ButtonBack" Grid.Row="0" Grid.Column="0" BorderThickness="0" Width="45" Height="45" Background="WhiteSmoke" HorizontalAlignment="Left" Padding="10"
+                    Click="ButtonBack_OnClick">
                 <Image Source="Images/LeftArrow.png"/>
             </Button>
         </Grid>

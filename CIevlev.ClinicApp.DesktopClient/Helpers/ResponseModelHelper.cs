@@ -4,7 +4,7 @@ using SIevlev.ClinicApp.Interfaces.WebModels;
 
 namespace CIevlev.ClinicApp.DesktopClient.Helpers
 {
-    public class ResponseModelHelper
+    public static class ResponseModelHelper
     {
         public static List<T> GetResultAsList<T>(ResponseModel responseModel)
         {

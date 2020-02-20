@@ -9,13 +9,13 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
 {
     public partial class ControlDoctorService : UserControl
     {
-        private readonly WindowContainer _windowContainer;
+        private readonly WindowContainer _hostWindow;
         
-        public ControlDoctorService(WindowContainer windowContainer)
+        public ControlDoctorService(WindowContainer hostWindow)
         {
             InitializeComponent();
 
-            _windowContainer = windowContainer;
+            _hostWindow = hostWindow;
 
             ListViewDoctorsLoad();
         }

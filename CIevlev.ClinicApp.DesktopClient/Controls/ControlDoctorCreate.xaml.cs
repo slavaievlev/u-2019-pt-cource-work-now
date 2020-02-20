@@ -35,14 +35,21 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
                 description,
                 price);
 
-            ResponseModel response = ApiClient.PostRequest<ResponseModel, DoctorBindingModel>("/api/doctor/createDoctor/", newDoctorModel);
+            var response = ApiClient.PostRequest<ResponseModel, DoctorBindingModel>("/api/doctor/createDoctor/", newDoctorModel);
 
-            _hostWindow.ListViewDoctorsLoad();
+            // TODO обработать ответ в popup :)
             
-            _hostWindow.ContentDoctorInfos.Content = null;
+            _hostWindow.ListViewDoctorsLoad();
+
+            Close();
         }
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Close()
         {
             _hostWindow.ContentDoctorInfos.Content = null;
         }
