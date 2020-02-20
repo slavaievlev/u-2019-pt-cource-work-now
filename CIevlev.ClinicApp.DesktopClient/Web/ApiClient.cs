@@ -3,9 +3,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Configuration;
 
-namespace CIevlev.ClinicApp.DesktopClient
+namespace CIevlev.ClinicApp.DesktopClient.Web
 {
-    public class ApiClient
+    public static class ApiClient
     {
         private static readonly HttpClient HttpClient = new HttpClient();
 

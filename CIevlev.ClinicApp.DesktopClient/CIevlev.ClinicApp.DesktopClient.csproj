@@ -60,7 +60,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ApiClient.cs" />
     <Compile Include="Controls\ControlDoctorCreate.xaml.cs">
       <DependentUpon>ControlDoctorCreate.xaml</DependentUpon>
     </Compile>
@@ -74,6 +73,12 @@
       <DependentUpon>ControlMainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ResponseModelHelper.cs" />
+    <Compile Include="IWindowContainer.cs" />
+    <Compile Include="Web\ApiClient.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WindowContainer.xaml.cs">
       <DependentUpon>WindowContainer.xaml</DependentUpon>
     </Compile>
@@ -82,10 +87,6 @@
     <Page Include="Controls\ControlDoctorService.xaml" />
     <Page Include="Controls\ControlMainMenu.xaml" />
     <Page Include="WindowContainer.xaml" />
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

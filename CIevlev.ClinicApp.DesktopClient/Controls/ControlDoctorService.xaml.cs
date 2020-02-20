@@ -2,16 +2,17 @@
 using System.Windows;
 using System.Windows.Controls;
 using CIevlev.ClinicApp.DesktopClient.Helpers;
+using CIevlev.ClinicApp.DesktopClient.Web;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
 using SIevlev.ClinicApp.Interfaces.WebModels;
 
 namespace CIevlev.ClinicApp.DesktopClient.Controls
 {
-    public partial class ControlDoctorService : UserControl
+    public partial class ControlDoctorService : UserControl, IWindowContainer
     {
-        private readonly WindowContainer _hostWindow;
+        private readonly IWindowContainer _hostWindow;
         
-        public ControlDoctorService(WindowContainer hostWindow)
+        public ControlDoctorService(IWindowContainer hostWindow)
         {
             InitializeComponent();
 
@@ -30,7 +31,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
 
         private void ButtonDoctorCreate_OnClick(object sender, RoutedEventArgs e)
         {
-            ContentDoctorInfos.Content = new ControlDoctorCreate(this);
+            ChangeContent(new ControlDoctorCreate(this));
 
             ListViewDoctorsLoad();
         }
@@ -42,8 +43,18 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
             // TODO почему бывает null?
             if (doctorViewModel != null)
             {
-                ContentDoctorInfos.Content = new ControlDoctorInfos(doctorViewModel);
+                ChangeContent(new ControlDoctorInfos(doctorViewModel));
             }
+        }
+
+        public void ChangeContent(UserControl newContent)
+        {
+            ContentDoctorInfos.Content = newContent;
+        }
+
+        public void ClearContent()
+        {
+            ContentDoctorInfos.Content = null;
         }
     }
 }

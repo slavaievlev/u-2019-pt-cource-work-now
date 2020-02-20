@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using CIevlev.ClinicApp.DesktopClient.Web;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
 using SIevlev.ClinicApp.Interfaces.WebModels;
 
@@ -51,7 +52,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
 
         private void Close()
         {
-            _hostWindow.ContentDoctorInfos.Content = null;
+            _hostWindow.ClearContent();
         }
     }
 }

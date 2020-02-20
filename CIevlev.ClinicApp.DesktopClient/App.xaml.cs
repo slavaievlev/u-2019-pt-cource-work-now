@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CIevlev.ClinicApp.DesktopClient.Web;
 
 namespace CIevlev.ClinicApp.DesktopClient
 {

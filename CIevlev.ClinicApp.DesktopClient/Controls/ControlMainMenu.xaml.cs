@@ -5,9 +5,9 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
 {
     public partial class ControlMainMenu : UserControl
     {
-        private readonly WindowContainer _hostWindow;
+        private readonly IWindowContainer _hostWindow;
         
-        public ControlMainMenu(WindowContainer hostWindow)
+        public ControlMainMenu(IWindowContainer hostWindow)
         {
             InitializeComponent();
 
