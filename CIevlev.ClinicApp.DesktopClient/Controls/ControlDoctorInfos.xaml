@@ -56,8 +56,10 @@
                 <ColumnDefinition Width="0.15*" />
             </Grid.ColumnDefinitions>
                     
-            <Button x:Name="ButtonDoctorUpdate" Content="Редактировать" Grid.Column="1" Margin="1" />
-            <Button x:Name="ButtonDoctorDelete" Content="Удалить" Grid.Column="2" Margin="1" />
+            <Button x:Name="ButtonDoctorUpdate" Content="Редактировать" Grid.Column="1" Margin="1"
+                    Click="ButtonDoctorUpdate_OnClick"/>
+            <Button x:Name="ButtonDoctorDelete" Content="Удалить" Grid.Column="2" Margin="1"
+                    Click="ButtonDoctorDelete_OnClick"/>
         </Grid>
     </Grid>
 </UserControl>

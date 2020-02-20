@@ -40,7 +40,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
 
             // TODO обработать ответ в popup :)
             
-            _hostWindow.ListViewDoctorsLoad();
+            _hostWindow.UpdateDoctorsList();
 
             Close();
         }

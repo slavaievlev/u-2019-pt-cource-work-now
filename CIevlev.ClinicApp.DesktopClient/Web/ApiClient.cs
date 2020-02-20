@@ -25,7 +25,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Web
                 return response.Result.Content.ReadAsAsync<T>().Result;
             }
 
-            throw new Exception("Оу, ошибочка");
+            throw new Exception("Оу, ошибочка при получении!");
         }
         
         public static T PostRequest<T, U>(string requestUrl, U model)
@@ -36,7 +36,29 @@ namespace CIevlev.ClinicApp.DesktopClient.Web
                 return response.Result.Content.ReadAsAsync<T>().Result;
             }
 
-            throw new Exception("Оу, ошибочка");
+            throw new Exception("Оу, ошибочка во время post запроса :)");
+        }
+
+        public static T DelRequest<T>(string requestUrl)
+        {
+            var response = HttpClient.DeleteAsync(requestUrl);
+            if (response.Result.IsSuccessStatusCode)
+            {
+                return response.Result.Content.ReadAsAsync<T>().Result;
+            }
+            
+            throw new Exception("Оу, ошибочка при удалении!");
+        }
+
+        public static T PutRequest<T, U>(string requestUrl, U model)
+        {
+            var response = HttpClient.PutAsJsonAsync(requestUrl, model);
+            if (response.Result.IsSuccessStatusCode)
+            {
+                return response.Result.Content.ReadAsAsync<T>().Result;
+            }
+            
+            throw new Exception("Оу, ошибочка во время put запроса :)");
         }
     }
 }

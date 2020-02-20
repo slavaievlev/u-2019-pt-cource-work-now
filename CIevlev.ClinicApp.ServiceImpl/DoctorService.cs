@@ -81,7 +81,8 @@ namespace CIevlev.ClinicApp.ServiceImpl
                     doctor.FirstName, 
                     doctor.LastName, 
                     doctor.Description, 
-                    doctor.Price)
+                    doctor.Price,
+                    doctor.IsActive.Value)
             ).ToList();
         }
 

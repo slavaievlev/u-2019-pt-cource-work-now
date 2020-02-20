@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using CIevlev.ClinicApp.DesktopClient.Helpers;
@@ -18,14 +19,16 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
 
             _hostWindow = hostWindow;
 
-            ListViewDoctorsLoad();
+            UpdateDoctorsList();
         }
 
-        public void ListViewDoctorsLoad()
+        public void UpdateDoctorsList()
         {
             var response = ApiClient.GetRequest<ResponseModel>("/api/Doctor/GetDoctors/");
-            
-            var doctorsObservableCollection = new ObservableCollection<DoctorViewModel>(ResponseModelHelper.GetResultAsList<DoctorViewModel>(response));
+
+            var doctorsList = ResponseModelHelper.GetResultAsList<DoctorViewModel>(response)
+                .Where(doctor => doctor.IsActive).ToList();
+            var doctorsObservableCollection = new ObservableCollection<DoctorViewModel>(doctorsList);
             ListViewDoctors.ItemsSource = doctorsObservableCollection;
         }
 
@@ -33,7 +36,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
         {
             ChangeContent(new ControlDoctorCreate(this));
 
-            ListViewDoctorsLoad();
+            UpdateDoctorsList();
         }
 
         private void ListViewDoctors_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -43,7 +46,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls
             // TODO почему бывает null?
             if (doctorViewModel != null)
             {
-                ChangeContent(new ControlDoctorInfos(doctorViewModel));
+                ChangeContent(new ControlDoctorInfos(this, doctorViewModel));
             }
         }
 
