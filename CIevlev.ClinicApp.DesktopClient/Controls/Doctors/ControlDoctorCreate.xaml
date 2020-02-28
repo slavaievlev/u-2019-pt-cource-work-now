@@ -25,7 +25,7 @@
                 <TextBox x:Name="TextBoxDescription" Width="200" Height="25" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 3" HorizontalAlignment="Right">
-                <TextBlock Text="Цена услуги" VerticalAlignment="Center" Margin="10 0" />
+                <TextBlock x:Name="TextBlockPrice" Text="Цена услуги" VerticalAlignment="Center" Margin="10 0" />
                 <TextBox x:Name="TextBoxPrice" Width="200" Height="25" />
             </StackPanel>
         </StackPanel>

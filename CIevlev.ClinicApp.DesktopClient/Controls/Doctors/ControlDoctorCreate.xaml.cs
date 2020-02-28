@@ -3,15 +3,16 @@ using System.Windows;
 using System.Windows.Controls;
 using CIevlev.ClinicApp.DesktopClient.Web;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
+using SIevlev.ClinicApp.Interfaces.Exceptions;
 using SIevlev.ClinicApp.Interfaces.WebModels;
 
 namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 {
     public partial class ControlDoctorCreate : UserControl
     {
-        private readonly ControlDoctorService _hostWindow;    // TODO интерфейс для контейнеров.
+        private readonly IWindowContainer _hostWindow;
         
-        public ControlDoctorCreate(ControlDoctorService hostWindow)
+        public ControlDoctorCreate(IWindowContainer hostWindow)
         {
             InitializeComponent();
 
@@ -20,12 +21,12 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 
         private void ButtonCreateDoctor_OnClick(object sender, RoutedEventArgs e)
         {
+            ValidateTextBoxes();
+            
             var firstName = TextBoxFirstName.Text;
             var secondName = TextBoxSecondName.Text;
             var description = TextBoxDescription.Text;
             var priceAsString = TextBoxPrice.Text;
-            
-            // TODO проверка данных.
 
             var price = Convert.ToInt32(priceAsString);
             
@@ -40,7 +41,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 
             // TODO обработать ответ в popup :)
             
-            _hostWindow.UpdateDoctorsList();
+            ((ControlDoctorService) _hostWindow).UpdateDoctorsList();
 
             Close();
         }
@@ -48,6 +49,16 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void ValidateTextBoxes()
+        {
+            var priceAsString = TextBoxPrice.Text;
+            if (!int.TryParse(priceAsString, out _))
+            {
+                throw new ValidationException(TextBlockPrice.Name + ": должно быть число"); 
+                // todo подсвечивать поле красненьким :) Когда-нибудь...
+            }
         }
 
         private void Close()
