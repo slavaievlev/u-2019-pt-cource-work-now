@@ -4,6 +4,8 @@ namespace SIevlev.ClinicApp.Interfaces.BindingModel
 {
     public class PatientBindingModel
     {   
+        public string Login { get; set; }
+        
         public string Password { get; set; }
         
         public PatientStatus PatientStatus { get; set; }

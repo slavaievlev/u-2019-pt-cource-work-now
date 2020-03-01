@@ -14,7 +14,7 @@ namespace CIevlev.ClinicApp.WebApi
     {
         private const string NotFoundExType = "NotFoundException";
         private const string ValidationExType = "ValidationException";
-        
+
         public override void Handle(ExceptionHandlerContext context)
         {
             switch (context.Exception)
@@ -27,6 +27,19 @@ namespace CIevlev.ClinicApp.WebApi
                             new ExceptionResponseModel(NotFoundExType, ex.Message), new JsonMediaTypeFormatter())
                     };
 
+                    context.Result = new HttpErrorResult(result);
+
+                    break;
+                }
+
+                case PatientNotFoundException ex:
+                {
+                    var result = new HttpResponseMessage(HttpStatusCode.NotFound)
+                    {
+                        Content = new ObjectContent(typeof(ExceptionResponseModel),
+                            new ExceptionResponseModel(NotFoundExType, ex.Message), new JsonMediaTypeFormatter())
+                    };
+                    
                     context.Result = new HttpErrorResult(result);
 
                     break;

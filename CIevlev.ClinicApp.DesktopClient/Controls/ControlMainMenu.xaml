@@ -19,7 +19,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        <Button x:Name="ButtonPatientService" Grid.Column="0" Grid.Row="1" Content="Сервис пациентов" Margin="5" />
+        <Button x:Name="ButtonPatientService" Grid.Column="0" Grid.Row="1" Content="Сервис пациентов" Margin="5"
+                Click="ButtonPatientService_OnClick"/>
         <Button x:Name="ButtonDoctorService" Grid.Column="1" Grid.Row="1" Content="Сервис докторов"  Margin="5"
                 Click="ButtonDoctorService_OnClick" />
         <Button x:Name="ButtonReportService" Grid.Column="2" Grid.Row="1" Content="Сервис отчетов" Margin="5" />
