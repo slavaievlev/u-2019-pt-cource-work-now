@@ -15,5 +15,7 @@ namespace SIevlev.ClinicApp.Interfaces.Services
         void ChangeBonus(int patientId, int newBonusQuantity);
 
         void BlockPatient(int patientId);
+
+        void UnblockPatient(int patientId);
     }
 }

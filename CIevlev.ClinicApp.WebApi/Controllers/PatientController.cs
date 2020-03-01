@@ -35,6 +35,13 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
             return Ok(new ResponseModel("Пациент успешно заблокирован! :)"));
         }
         
+        [HttpPut]
+        public IHttpActionResult UnblockPatient(int id)
+        {
+            _patientService.UnblockPatient(id);
+            return Ok(new ResponseModel("Пациент успешно разблокирован! :)"));
+        }
+        
         [HttpGet]
         public IHttpActionResult GetPatient(int id)
         {

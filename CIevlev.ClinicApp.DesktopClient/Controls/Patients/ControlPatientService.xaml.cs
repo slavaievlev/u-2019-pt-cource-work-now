@@ -22,12 +22,12 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
 
         private void ListViewPatients_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var doctorViewModel = (PatientViewModel) ListViewPatients.SelectedItem;
+            var patientViewModel = (PatientViewModel) ListViewPatients.SelectedItem;
             
             // TODO почему бывает null?
-            if (doctorViewModel != null)
+            if (patientViewModel != null)
             {
-                // ChangeContent(new ControlDoctorInfos(this, doctorViewModel));
+                ChangeContent(new ControlPatientInfos(this, patientViewModel));
             }
         }
         

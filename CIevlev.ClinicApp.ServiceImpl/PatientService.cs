@@ -93,5 +93,14 @@ namespace CIevlev.ClinicApp.ServiceImpl
 
             _patientRepository.UpdatePatient(patient);
         }
+        
+        public void UnblockPatient(int patientId)
+        {
+            var patient = _patientRepository.GetPatient(patientId);
+
+            patient.PatientStatus = PatientStatus.Active;
+
+            _patientRepository.UpdatePatient(patient);
+        }
     }
 }

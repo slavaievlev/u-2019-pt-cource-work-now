@@ -15,5 +15,21 @@
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public PatientViewModel()
+        {
+            
+        }
+        
+        public PatientViewModel(int id, string login, string patientStatus, string phone, int bonus, string firstName, string lastName)
+        {
+            Id = id;
+            Login = login;
+            PatientStatus = patientStatus;
+            Phone = phone;
+            Bonus = bonus;
+            FirstName = firstName;
+            LastName = lastName;
+        }
     }
 }

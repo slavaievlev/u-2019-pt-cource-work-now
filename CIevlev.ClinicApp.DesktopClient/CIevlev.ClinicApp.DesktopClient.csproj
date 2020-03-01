@@ -75,6 +75,9 @@
     <Compile Include="Controls\Doctors\ControlDoctorUpdate.xaml.cs">
       <DependentUpon>ControlDoctorUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Patients\ControlPatientInfos.xaml.cs">
+      <DependentUpon>ControlPatientInfos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Patients\ControlPatientService.xaml.cs">
       <DependentUpon>ControlPatientService.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,7 @@
     <Page Include="Controls\Doctors\ControlDoctorInfos.xaml" />
     <Page Include="Controls\Doctors\ControlDoctorService.xaml" />
     <Page Include="Controls\Doctors\ControlDoctorUpdate.xaml" />
+    <Page Include="Controls\Patients\ControlPatientInfos.xaml" />
     <Page Include="Controls\Patients\ControlPatientService.xaml" />
     <Page Include="WindowContainer.xaml" />
   </ItemGroup>
@@ -118,6 +122,10 @@
     <ProjectReference Include="..\SIevlev.ClinicApp.Interfaces\SIevlev.ClinicApp.Interfaces.csproj">
       <Project>{b976bf62-0ddf-471c-ae25-8cbcc1211ff0}</Project>
       <Name>SIevlev.ClinicApp.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIevlev.ClinicApp.Models\SIevlev.ClinicApp.Models.csproj">
+      <Project>{80c97198-07bf-4616-8403-0414ae7704c8}</Project>
+      <Name>SIevlev.ClinicApp.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
