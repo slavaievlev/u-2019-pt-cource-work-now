@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using CIevlev.ClinicApp.DesktopClient.Web;
 using SIevlev.ClinicApp.Interfaces.Dtos;
 using SIevlev.ClinicApp.Interfaces.Enums;
@@ -47,14 +48,33 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
 
         private void ButtonCreateReport_OnClick(object sender, RoutedEventArgs e)
         {
-            ApiClient.PostRequest<ResponseModel, PatientInvoicesDto>("/api/Patient/sendPatientInvoicesToEmail/",
-                new PatientInvoicesDto
-                {
-                    DocumentType = DocumentType.Docx,
-                    StartDate = DateTime.Now,
-                    EndDate = DateTime.Now,
-                    PatientId = _model.Id
-                });
+            var isFail = false;
+            try
+            {
+                ApiClient.PostRequest<ResponseModel, PatientInvoicesDto>("/api/Patient/sendPatientInvoicesToEmail/",
+                    new PatientInvoicesDto
+                    {
+                        DocumentType = DocumentType.Docx,
+                        StartDate = DateTime.Now,
+                        EndDate = DateTime.Now,
+                        PatientId = _model.Id
+                    });
+            }
+            catch (Exception ex)
+            {
+                isFail = true;
+            }
+
+            if (isFail)
+            {
+                ButtonCreateReport.Content = "Ошибка при отправке счета! Повторить?";
+                ButtonCreateReport.Background = Brushes.Red;
+            }
+            else
+            {
+                ButtonCreateReport.Content = "Счет отправлен!";
+                ButtonCreateReport.Background = Brushes.LightGreen;
+            }
         }
 
         private void ButtonBlock_OnClick(object sender, RoutedEventArgs e)
