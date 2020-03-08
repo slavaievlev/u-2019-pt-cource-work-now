@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
+using SIevlev.ClinicApp.Interfaces.Dtos;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
 
 namespace SIevlev.ClinicApp.Interfaces.Services
@@ -17,5 +18,7 @@ namespace SIevlev.ClinicApp.Interfaces.Services
         void BlockPatient(int patientId);
 
         void UnblockPatient(int patientId);
+
+        void SendInvoicesToEmail(PatientInvoicesDto patientInvoicesDto);
     }
 }

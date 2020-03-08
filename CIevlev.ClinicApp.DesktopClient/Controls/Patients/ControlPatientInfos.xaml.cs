@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using CIevlev.ClinicApp.DesktopClient.Web;
-using SIevlev.ClinicApp.Interfaces.BindingModel;
+using SIevlev.ClinicApp.Interfaces.Dtos;
 using SIevlev.ClinicApp.Interfaces.Enums;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
 using SIevlev.ClinicApp.Interfaces.WebModels;
@@ -49,23 +47,14 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
 
         private void ButtonCreateReport_OnClick(object sender, RoutedEventArgs e)
         {
-            var response = ApiClient.PostRequest<ResponseModel, PatientInvoicesBindingModel>("/api/Report/getPatientInvoices/",
-                new PatientInvoicesBindingModel
+            ApiClient.PostRequest<ResponseModel, PatientInvoicesDto>("/api/Patient/sendPatientInvoicesToEmail/",
+                new PatientInvoicesDto
                 {
                     DocumentType = DocumentType.Docx,
                     StartDate = DateTime.Now,
                     EndDate = DateTime.Now,
                     PatientId = _model.Id
                 });
-            
-            // TODO код для тестов
-            var bytes = Encoding.UTF8.GetBytes(response.Value.ToString());
-            
-            var tmpFile = Path.GetTempFileName();
-            var tmpFileStream = File.OpenWrite(tmpFile);
-            tmpFileStream.Write(bytes, 0, bytes.Length);
-            tmpFileStream.Close();
-            Console.WriteLine();
         }
 
         private void ButtonBlock_OnClick(object sender, RoutedEventArgs e)

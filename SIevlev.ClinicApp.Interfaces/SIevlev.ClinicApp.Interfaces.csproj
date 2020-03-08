@@ -44,9 +44,9 @@
   <ItemGroup>
     <Compile Include="BindingModel\DoctorBindingModel.cs" />
     <Compile Include="BindingModel\PatientBindingModel.cs" />
-    <Compile Include="BindingModel\PatientInvoicesBindingModel.cs" />
     <Compile Include="BindingModel\PaymentReportBindingModel.cs" />
     <Compile Include="Dtos\ChangeBonusDto.cs" />
+    <Compile Include="Dtos\PatientInvoicesDto.cs" />
     <Compile Include="Enums\DocumentType.cs" />
     <Compile Include="Exceptions\DoctorNotFoundException.cs" />
     <Compile Include="Exceptions\PatientNotFoundException.cs" />
@@ -57,7 +57,6 @@
     <Compile Include="Services\IDoctorService.cs" />
     <Compile Include="Services\IMailService.cs" />
     <Compile Include="Services\IPatientService.cs" />
-    <Compile Include="Services\IReportService.cs" />
     <Compile Include="ViewModel\DoctorViewModel.cs" />
     <Compile Include="ViewModel\PatientInvoicesViewModel.cs" />
     <Compile Include="ViewModel\PatientViewModel.cs" />

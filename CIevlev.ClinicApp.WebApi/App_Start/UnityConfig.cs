@@ -50,11 +50,9 @@ namespace CIevlev.ClinicApp.WebApi
             container.RegisterType<IDoctorService, DoctorService>(new HierarchicalLifetimeManager());
             container.RegisterType<IMailService, MailService>(new HierarchicalLifetimeManager());
             container.RegisterType<IPatientService, PatientService>(new HierarchicalLifetimeManager());
-            container.RegisterType<IReportService, ReportService>(new HierarchicalLifetimeManager());
             
             container.RegisterType<IDoctorRepository, DoctorRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IPatientRepository, PatientRepository>(new HierarchicalLifetimeManager());
-            container.RegisterType<IReportService, ReportService>(new HierarchicalLifetimeManager());
         }
     }
 }

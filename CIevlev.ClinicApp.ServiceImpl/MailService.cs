@@ -16,21 +16,30 @@ namespace CIevlev.ClinicApp.ServiceImpl
             _patientRepository = patientRepository;
         }
 
-        public void SendMessageToPatient(int patientId, string message, string attachment)
+        public void SendFileToPatient(int patientId, string title, string message, string pathToFile)
         {
             var patient = _patientRepository.GetPatient(patientId);
             
             var from = new MailAddress(ServiceEmail, "Admin");
             var to = new MailAddress(patient.Password);    // TODO wtf?
-            
-            var mailMessage = new MailMessage(from, to);
-            mailMessage.Subject = "Привет! :)";
-            mailMessage.Body = message;
-            mailMessage.Attachments.Add(new Attachment(attachment));
-            
-            var smtpClient = new SmtpClient("smtp.gmail.com", 587);
-            smtpClient.Credentials = new NetworkCredential("slavaievlev10@gmail.com", "d2q8I92-#1!");
-            smtpClient.EnableSsl = true;
+
+            var mailMessage = new MailMessage(from, to)
+            {
+                Subject = title,
+                Body = message,
+                Attachments =
+                {
+                    new Attachment(pathToFile)
+                }
+            };
+
+            // TODO вынести в конфиг.
+            var smtpClient = new SmtpClient("smtp.gmail.com", 587)
+            {
+                // TODO вынести в конфиг.
+                Credentials = new NetworkCredential("slavaievlev10@gmail.com", "d2q8I92-#1!"),
+                EnableSsl = true
+            };
             smtpClient.Send(mailMessage);
         }
     }

@@ -9,7 +9,7 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
     public class PatientController : ApiController
     {
         private readonly IPatientService _patientService;
-        
+
         public PatientController(IPatientService patientService)
         {
             _patientService = patientService;
@@ -54,6 +54,20 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
         {
             var patientViewModel = _patientService.GetPatients();
             return Ok(new ResponseModel(patientViewModel));
+        }
+        
+        [HttpPost]
+        public IHttpActionResult SendPatientInvoicesToEmail(PatientInvoicesDto patientInvoicesDto)
+        {
+            _patientService.SendInvoicesToEmail(new PatientInvoicesDto
+            {
+                DocumentType = patientInvoicesDto.DocumentType,
+                EndDate = patientInvoicesDto.EndDate,
+                PatientId = patientInvoicesDto.PatientId,
+                StartDate = patientInvoicesDto.StartDate
+            });
+
+            return Ok(new ResponseModel("Отчет отправлен успешно!"));
         }
     }
 }

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using CIevlev.ClinicApp.ServiceImpl.Export.Docx;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
+using SIevlev.ClinicApp.Interfaces.Dtos;
 using SIevlev.ClinicApp.Interfaces.Repositories;
 using SIevlev.ClinicApp.Interfaces.Services;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
@@ -11,10 +13,12 @@ namespace CIevlev.ClinicApp.ServiceImpl
     public class PatientService : IPatientService
     {
         private readonly IPatientRepository _patientRepository;
+        private readonly IMailService _mailService;
 
-        public PatientService(IPatientRepository patientRepository)
+        public PatientService(IPatientRepository patientRepository, IMailService mailService)
         {
             _patientRepository = patientRepository;
+            _mailService = mailService;
         }
 
         public PatientViewModel CreatePatient(PatientBindingModel patientBindingModel)
@@ -101,6 +105,15 @@ namespace CIevlev.ClinicApp.ServiceImpl
             patient.PatientStatus = PatientStatus.Active;
 
             _patientRepository.UpdatePatient(patient);
+        }
+        
+        public void SendInvoicesToEmail(PatientInvoicesDto patientInvoicesDto)
+        {
+            var title = $"Счета за период с {patientInvoicesDto.StartDate.Date} по {patientInvoicesDto.EndDate.Date}";
+            const string message = "Привет! Вам пришел счет! Оплатите его, пожалуйста :)";
+            
+            var doc = new PatientInvoicesDocument();
+            _mailService.SendFileToPatient(patientInvoicesDto.PatientId, title, message, doc.PathToFile);
         }
     }
 }

@@ -2,6 +2,6 @@ namespace SIevlev.ClinicApp.Interfaces.Services
 {
     public interface IMailService
     {
-        void SendMessageToPatient(int patientId, string message, string attachment);
+        void SendFileToPatient(int patientId, string title, string message, string pathToFile);
     }
 }
