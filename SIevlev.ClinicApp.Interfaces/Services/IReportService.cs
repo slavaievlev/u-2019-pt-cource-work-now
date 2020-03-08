@@ -4,8 +4,10 @@ namespace SIevlev.ClinicApp.Interfaces.Services
 {
     public interface IReportService
     {
-        void GetPatientInvoices(PatientInvoicesBindingModel patientInvoices);
+        byte[] GetPatientInvoicesAsByteArray(PatientInvoicesBindingModel patientInvoicesBindingModel);
 
-        void GetPaymentReport(PaymentReportBindingModel paymentReport);
+        string GetPatientInvoicesAsPhysicalPath(PatientInvoicesBindingModel patientInvoicesBindingModel);
+
+        byte[] GetPaymentReport(PaymentReportBindingModel paymentReport);
     }
 }

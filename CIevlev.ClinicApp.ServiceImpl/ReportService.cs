@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using Microsoft.Office.Interop.Word;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
 using SIevlev.ClinicApp.Interfaces.Services;
 
@@ -6,12 +8,30 @@ namespace CIevlev.ClinicApp.ServiceImpl
 {
     public class ReportService : IReportService
     {
-        public void GetPatientInvoices(PatientInvoicesBindingModel patientInvoices)
+        public byte[] GetPatientInvoicesAsByteArray(PatientInvoicesBindingModel patientInvoicesBindingModel)
         {
-            throw new NotImplementedException();
+            string pathToFile = GetPatientInvoicesAsPhysicalPath(patientInvoicesBindingModel);
+            return File.ReadAllBytes(pathToFile);
         }
 
-        public void GetPaymentReport(PaymentReportBindingModel paymentReport)
+        public string GetPatientInvoicesAsPhysicalPath(PatientInvoicesBindingModel patientInvoicesBindingModel)
+        {
+            var wordApp = new Application();
+            var document = wordApp.Documents.Add();
+            
+            var paragraph = document.Paragraphs.Add();
+            var range = paragraph.Range;
+            range.Text = "Hello, World!";
+            range.InsertParagraphAfter();
+            
+            var pathToFile = Path.GetTempPath() + Guid.NewGuid() + ".docx";
+            document.SaveAs(pathToFile);
+            document.Close();
+
+            return pathToFile;
+        }
+
+        public byte[] GetPaymentReport(PaymentReportBindingModel paymentReport)
         {
             throw new NotImplementedException();
         }

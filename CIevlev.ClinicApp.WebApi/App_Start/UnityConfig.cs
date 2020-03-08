@@ -54,6 +54,7 @@ namespace CIevlev.ClinicApp.WebApi
             
             container.RegisterType<IDoctorRepository, DoctorRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IPatientRepository, PatientRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IReportService, ReportService>(new HierarchicalLifetimeManager());
         }
     }
 }
