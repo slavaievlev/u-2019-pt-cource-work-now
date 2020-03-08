@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using CIevlev.ClinicApp.DesktopClient.Helpers;
 using CIevlev.ClinicApp.DesktopClient.Web;
 using SIevlev.ClinicApp.Interfaces.Dtos;
 using SIevlev.ClinicApp.Interfaces.Enums;
@@ -30,18 +30,9 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
 
             UpdatePatientInfos();
 
-            var testList = new List<PatientInvoicesViewModel>
-            {
-                new PatientInvoicesViewModel(
-                    -1,
-                    new DateTime(),
-                    null,
-                    567,
-                    100,
-                    "Createddd")
-            };
-
-            ListViewPatients.ItemsSource = new ObservableCollection<PatientInvoicesViewModel>(testList);
+            var response = ApiClient.GetRequest<ResponseModel>("/api/Patient/GetAllInvoices/" + _model.Id);
+            var invoices = ResponseModelHelper.GetResultAsList<PatientInvoicesViewModel>(response);
+            ListViewPatients.ItemsSource = new ObservableCollection<PatientInvoicesViewModel>(invoices);
 
             SetButtonBlockContent();
         }

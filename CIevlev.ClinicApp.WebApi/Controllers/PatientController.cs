@@ -69,5 +69,12 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
 
             return Ok(new ResponseModel("Отчет отправлен успешно!"));
         }
+        
+        [HttpGet]
+        public IHttpActionResult GetAllInvoices(int id)
+        {
+            var invoices = _patientService.GetAllInvoices(id);
+            return Ok(new ResponseModel(invoices, "Получение счетов пациента прошло успешно!"));
+        }
     }
 }

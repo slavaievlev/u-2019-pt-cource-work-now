@@ -115,5 +115,19 @@ namespace CIevlev.ClinicApp.ServiceImpl
             var doc = new PatientInvoicesDocument();
             _mailService.SendFileToPatient(patientInvoicesReportDto.PatientId, title, message, doc.PathToFile);
         }
+
+        public List<PatientInvoicesViewModel> GetAllInvoices(int patientId)
+        {
+            var patient = _patientRepository.GetPatient(patientId);
+            return patient.Orders.Select(order => new PatientInvoicesViewModel()
+            {
+                CreateDate = order.CreateDate,
+                ImplementDate = order.ImplementDate,
+                OrderStatus = order.OrderStatus.ToString(),
+                Paid = order.PayStores.Sum(story => story.Sum),
+                PatientId = order.PatientId,
+                Price = order.Price
+            }).ToList();
+        }
     }
 }

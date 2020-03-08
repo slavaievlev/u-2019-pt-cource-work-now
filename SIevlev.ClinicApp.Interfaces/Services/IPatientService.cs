@@ -20,5 +20,7 @@ namespace SIevlev.ClinicApp.Interfaces.Services
         void UnblockPatient(int patientId);
 
         void SendInvoicesToEmail(PatientInvoicesReportDto patientInvoicesReportDto);
+
+        List<PatientInvoicesViewModel> GetAllInvoices(int patientId);
     }
 }
