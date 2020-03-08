@@ -46,7 +46,7 @@
     <Compile Include="BindingModel\PatientBindingModel.cs" />
     <Compile Include="BindingModel\PaymentReportBindingModel.cs" />
     <Compile Include="Dtos\ChangeBonusDto.cs" />
-    <Compile Include="Dtos\PatientInvoicesDto.cs" />
+    <Compile Include="Dtos\PatientInvoicesReportDto.cs" />
     <Compile Include="Enums\DocumentType.cs" />
     <Compile Include="Exceptions\DoctorNotFoundException.cs" />
     <Compile Include="Exceptions\PatientNotFoundException.cs" />
@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IDoctorRepository.cs" />
     <Compile Include="Repositories\IPatientRepository.cs" />
+    <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\IDoctorService.cs" />
     <Compile Include="Services\IMailService.cs" />
     <Compile Include="Services\IPatientService.cs" />

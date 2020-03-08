@@ -107,13 +107,13 @@ namespace CIevlev.ClinicApp.ServiceImpl
             _patientRepository.UpdatePatient(patient);
         }
         
-        public void SendInvoicesToEmail(PatientInvoicesDto patientInvoicesDto)
+        public void SendInvoicesToEmail(PatientInvoicesReportDto patientInvoicesReportDto)
         {
-            var title = $"Счета за период с {patientInvoicesDto.StartDate.Date} по {patientInvoicesDto.EndDate.Date}";
+            var title = $"Счета за период с {patientInvoicesReportDto.StartDate.Date} по {patientInvoicesReportDto.EndDate.Date}";
             const string message = "Привет! Вам пришел счет! Оплатите его, пожалуйста :)";
             
             var doc = new PatientInvoicesDocument();
-            _mailService.SendFileToPatient(patientInvoicesDto.PatientId, title, message, doc.PathToFile);
+            _mailService.SendFileToPatient(patientInvoicesReportDto.PatientId, title, message, doc.PathToFile);
         }
     }
 }

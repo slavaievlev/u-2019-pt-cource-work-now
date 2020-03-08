@@ -51,8 +51,8 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
             var isFail = false;
             try
             {
-                ApiClient.PostRequest<ResponseModel, PatientInvoicesDto>("/api/Patient/sendPatientInvoicesToEmail/",
-                    new PatientInvoicesDto
+                ApiClient.PostRequest<ResponseModel, PatientInvoicesReportDto>("/api/Patient/sendPatientInvoicesToEmail/",
+                    new PatientInvoicesReportDto
                     {
                         DocumentType = DocumentType.Docx,
                         StartDate = DateTime.Now,

@@ -57,14 +57,14 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
         }
         
         [HttpPost]
-        public IHttpActionResult SendPatientInvoicesToEmail(PatientInvoicesDto patientInvoicesDto)
+        public IHttpActionResult SendPatientInvoicesToEmail(PatientInvoicesReportDto patientInvoicesReportDto)
         {
-            _patientService.SendInvoicesToEmail(new PatientInvoicesDto
+            _patientService.SendInvoicesToEmail(new PatientInvoicesReportDto
             {
-                DocumentType = patientInvoicesDto.DocumentType,
-                EndDate = patientInvoicesDto.EndDate,
-                PatientId = patientInvoicesDto.PatientId,
-                StartDate = patientInvoicesDto.StartDate
+                DocumentType = patientInvoicesReportDto.DocumentType,
+                EndDate = patientInvoicesReportDto.EndDate,
+                PatientId = patientInvoicesReportDto.PatientId,
+                StartDate = patientInvoicesReportDto.StartDate
             });
 
             return Ok(new ResponseModel("Отчет отправлен успешно!"));

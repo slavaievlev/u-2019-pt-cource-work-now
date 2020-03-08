@@ -3,7 +3,7 @@ using SIevlev.ClinicApp.Interfaces.Enums;
 
 namespace SIevlev.ClinicApp.Interfaces.Dtos
 {
-    public class PatientInvoicesDto
+    public class PatientInvoicesReportDto
     {
         public int PatientId { get; set; }
         
