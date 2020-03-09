@@ -7,11 +7,11 @@ using SIevlev.ClinicApp.Interfaces.WebModels;
 
 namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
 {
-    public partial class ControlPatientService : UserControl, IWindowContainer
+    public partial class ControlPatientService : UserControl, IHostWindow
     {
-        private readonly IWindowContainer _hostWindow;
+        private readonly IHostWindow _hostWindow;
         
-        public ControlPatientService(IWindowContainer hostWindow)
+        public ControlPatientService(IHostWindow hostWindow)
         {
             InitializeComponent();
 

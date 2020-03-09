@@ -10,11 +10,11 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 {
     public partial class ControlDoctorUpdate : UserControl
     {
-        private readonly IWindowContainer _hostWindow;    // TODO интерфейс для контейнеров.
+        private readonly IHostWindow _hostWindow;
 
         private readonly DoctorViewModel _doctorViewModel;
 
-        public ControlDoctorUpdate(IWindowContainer hostWindow, DoctorViewModel doctorViewModel)
+        public ControlDoctorUpdate(IHostWindow hostWindow, DoctorViewModel doctorViewModel)
         {
             InitializeComponent();
 

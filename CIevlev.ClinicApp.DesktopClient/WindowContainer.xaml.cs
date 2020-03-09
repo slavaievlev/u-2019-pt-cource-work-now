@@ -5,7 +5,7 @@ using CIevlev.ClinicApp.DesktopClient.Controls;
 
 namespace CIevlev.ClinicApp.DesktopClient
 {
-    public partial class WindowContainer : Window, IWindowContainer
+    public partial class WindowContainer : Window, IHostWindow
     {
         private readonly Stack<UserControl> _previousContents;
         

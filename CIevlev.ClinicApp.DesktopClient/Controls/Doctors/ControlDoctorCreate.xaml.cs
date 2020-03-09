@@ -10,9 +10,9 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 {
     public partial class ControlDoctorCreate : UserControl
     {
-        private readonly IWindowContainer _hostWindow;
+        private readonly IHostWindow _hostWindow;
         
-        public ControlDoctorCreate(IWindowContainer hostWindow)
+        public ControlDoctorCreate(IHostWindow hostWindow)
         {
             InitializeComponent();
 

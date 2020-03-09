@@ -18,10 +18,10 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
         private const string BtnTextBlock = "Заблокировать!";
         private const string BtnTextUnblock = "Разаблокировать!";
 
-        private readonly IWindowContainer _hostWindow;
+        private readonly IHostWindow _hostWindow;
         private readonly PatientViewModel _model;
 
-        public ControlPatientInfos(IWindowContainer hostWindow, PatientViewModel model)
+        public ControlPatientInfos(IHostWindow hostWindow, PatientViewModel model)
         {
             InitializeComponent();
 
@@ -96,6 +96,11 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
             TextBlockPatientDescription.Text = _model.Login;
             TextBlockPatientBonus.Text = _model.Bonus.ToString();
             TextBlockPatientStatis.Text = _model.PatientStatus;
+        }
+
+        private void ButtonChangeBonus_OnClick(object sender, RoutedEventArgs e)
+        {
+            _hostWindow.ChangeContent(new ControlPatientBonuses(_hostWindow, _model));
         }
     }
 }

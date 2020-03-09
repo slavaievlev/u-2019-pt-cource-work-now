@@ -75,6 +75,9 @@
     <Compile Include="Controls\Doctors\ControlDoctorUpdate.xaml.cs">
       <DependentUpon>ControlDoctorUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Patients\ControlPatientBonuses.xaml.cs">
+      <DependentUpon>ControlPatientBonuses.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Patients\ControlPatientInfos.xaml.cs">
       <DependentUpon>ControlPatientInfos.xaml</DependentUpon>
     </Compile>
@@ -82,7 +85,7 @@
       <DependentUpon>ControlPatientService.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ResponseModelHelper.cs" />
-    <Compile Include="IWindowContainer.cs" />
+    <Compile Include="IHostWindow.cs" />
     <Compile Include="Web\ApiClient.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -96,6 +99,7 @@
     <Page Include="Controls\Doctors\ControlDoctorInfos.xaml" />
     <Page Include="Controls\Doctors\ControlDoctorService.xaml" />
     <Page Include="Controls\Doctors\ControlDoctorUpdate.xaml" />
+    <Page Include="Controls\Patients\ControlPatientBonuses.xaml" />
     <Page Include="Controls\Patients\ControlPatientInfos.xaml" />
     <Page Include="Controls\Patients\ControlPatientService.xaml" />
     <Page Include="WindowContainer.xaml" />

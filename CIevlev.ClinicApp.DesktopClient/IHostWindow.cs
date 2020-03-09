@@ -2,7 +2,7 @@
 
 namespace CIevlev.ClinicApp.DesktopClient
 {
-    public interface IWindowContainer
+    public interface IHostWindow
     {
         void ChangeContent(UserControl userControl);
 

@@ -8,10 +8,10 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 {
     public partial class ControlDoctorInfos : UserControl
     {
-        private readonly IWindowContainer _hostWindow;
+        private readonly IHostWindow _hostWindow;
         private readonly DoctorViewModel _doctorViewModel;
         
-        public ControlDoctorInfos(IWindowContainer hostWindow, DoctorViewModel doctorViewModel)
+        public ControlDoctorInfos(IHostWindow hostWindow, DoctorViewModel doctorViewModel)
         {
             InitializeComponent();
 

@@ -9,11 +9,11 @@ using SIevlev.ClinicApp.Interfaces.WebModels;
 
 namespace CIevlev.ClinicApp.DesktopClient.Controls.Doctors
 {
-    public partial class ControlDoctorService : UserControl, IWindowContainer
+    public partial class ControlDoctorService : UserControl, IHostWindow
     {
-        private readonly IWindowContainer _hostWindow;
+        private readonly IHostWindow _hostWindow;
         
-        public ControlDoctorService(IWindowContainer hostWindow)
+        public ControlDoctorService(IHostWindow hostWindow)
         {
             InitializeComponent();
 
