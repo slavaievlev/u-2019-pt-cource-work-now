@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
+using SIevlev.ClinicApp.Interfaces.Export;
 using SIevlev.ClinicApp.Interfaces.Repositories;
 using SIevlev.ClinicApp.Interfaces.Services;
 
@@ -16,7 +19,7 @@ namespace CIevlev.ClinicApp.ServiceImpl
             _patientRepository = patientRepository;
         }
 
-        public void SendFileToPatient(int patientId, string title, string message, string pathToFile)
+        public void SendFilesToPatient(int patientId, string title, string message, List<ExportedFile> files)
         {
             var patient = _patientRepository.GetPatient(patientId);
             
@@ -26,12 +29,14 @@ namespace CIevlev.ClinicApp.ServiceImpl
             var mailMessage = new MailMessage(from, to)
             {
                 Subject = title,
-                Body = message,
-                Attachments =
-                {
-                    new Attachment(pathToFile)
-                }
+                Body = message
             };
+            foreach (var file in files)
+            {
+                var attachment = new Attachment(file.FileStream, new ContentType(MediaTypeNames.Text.Plain));
+                attachment.ContentDisposition.FileName = file.FileName;
+                mailMessage.Attachments.Add(attachment);
+            }
 
             // TODO вынести в конфиг.
             var smtpClient = new SmtpClient("smtp.gmail.com", 587)

@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using CIevlev.ClinicApp.ServiceImpl.Export.Docx;
+using CIevlev.ClinicApp.ServiceImpl.Export;
 using SIevlev.ClinicApp.Interfaces.BindingModel;
 using SIevlev.ClinicApp.Interfaces.Dtos;
+using SIevlev.ClinicApp.Interfaces.Export;
 using SIevlev.ClinicApp.Interfaces.Repositories;
 using SIevlev.ClinicApp.Interfaces.Services;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
@@ -114,8 +116,12 @@ namespace CIevlev.ClinicApp.ServiceImpl
 
             var invoices = GetUnpaidInvoices(patientInvoicesReportDto.PatientId);
 
-            var doc = new PatientInvoicesDocument(invoices);
-            _mailService.SendFileToPatient(patientInvoicesReportDto.PatientId, title, message, doc.PathToFile);
+            var invoicesDocument = new PatientInvoicesDocument("Отчет " + DateTime.Now.Date + ".docx", invoices);
+            _mailService.SendFilesToPatient(patientInvoicesReportDto.PatientId, title, message,
+                new List<ExportedFile>
+                {
+                    invoicesDocument
+                });
         }
 
         private List<PatientInvoicesViewModel> GetUnpaidInvoices(int patientId)

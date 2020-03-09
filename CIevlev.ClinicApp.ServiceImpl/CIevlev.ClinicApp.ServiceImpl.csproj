@@ -55,7 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoctorService.cs" />
-    <Compile Include="Export\Docx\PatientInvoicesDocument.cs" />
+    <Compile Include="Export\PatientInvoicesDocument.cs" />
+    <Compile Include="Export\PatientInvoicesWorkbook.cs" />
     <Compile Include="MailService.cs" />
     <Compile Include="PatientService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

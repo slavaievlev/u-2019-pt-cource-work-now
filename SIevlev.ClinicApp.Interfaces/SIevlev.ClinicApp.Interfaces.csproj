@@ -51,6 +51,7 @@
     <Compile Include="Exceptions\DoctorNotFoundException.cs" />
     <Compile Include="Exceptions\PatientNotFoundException.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="Export\ExportedFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IDoctorRepository.cs" />
     <Compile Include="Repositories\IPatientRepository.cs" />
