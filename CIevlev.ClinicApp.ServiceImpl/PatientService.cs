@@ -110,11 +110,34 @@ namespace CIevlev.ClinicApp.ServiceImpl
         public void SendInvoicesToEmail(PatientInvoicesReportDto patientInvoicesReportDto)
         {
             var title = $"Счета за период с {patientInvoicesReportDto.StartDate.Date} по {patientInvoicesReportDto.EndDate.Date}";
-            const string message = "Привет! Вам пришел счет! Оплатите его, пожалуйста :)";
-            
-            var doc = new PatientInvoicesDocument();
+            const string message = "Привет! Вам пришел счет!";
+
+            var invoices = GetUnpaidInvoices(patientInvoicesReportDto.PatientId);
+
+            var doc = new PatientInvoicesDocument(invoices);
             _mailService.SendFileToPatient(patientInvoicesReportDto.PatientId, title, message, doc.PathToFile);
         }
+
+        private List<PatientInvoicesViewModel> GetUnpaidInvoices(int patientId)
+        {
+            var patient = _patientRepository.GetPatient(patientId);
+            return patient.Orders
+                .Where(order => order.OrderStatus != OrderStatus.Paid)
+                .Select(order => new PatientInvoicesViewModel() 
+                {
+                    CreateDate = order.CreateDate,
+                    ImplementDate = order.ImplementDate,
+                    OrderStatus = order.OrderStatus.ToString(),
+                    Paid = order.PayStores.Sum(story => story.Sum),
+                    PatientId = order.PatientId,
+                    Price = order.Price,
+                    DoctorFios = order.OrderDoctor
+                        .Select(orderDoctor => $"{orderDoctor.Doctor.FirstName} {orderDoctor.Doctor.LastName}")
+                        .ToList()
+                })
+                .ToList();
+        }
+        
 
         public List<PatientInvoicesViewModel> GetAllInvoices(int patientId)
         {

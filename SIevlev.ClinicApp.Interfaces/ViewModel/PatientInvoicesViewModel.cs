@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace SIevlev.ClinicApp.Interfaces.ViewModel
 {
     public class PatientInvoicesViewModel
     {
+        public List<string> DoctorFios { get; set; }
+        
         public int PatientId { get; set; }
         
         public DateTime CreateDate { get; set; }
@@ -23,7 +26,16 @@ namespace SIevlev.ClinicApp.Interfaces.ViewModel
         {
         }
 
-        public PatientInvoicesViewModel(int patientId, DateTime date, DateTime? implementDate, int price, int paid, string orderStatus)
+        public PatientInvoicesViewModel(
+            int patientId, 
+            DateTime date,
+            DateTime? implementDate,
+            int price,
+            int paid,
+            string orderStatus,
+            string doctorFirstName,
+            string doctorLastName, 
+            List<string> doctorFios)
         {
             PatientId = patientId;
             CreateDate = date;
@@ -31,6 +43,8 @@ namespace SIevlev.ClinicApp.Interfaces.ViewModel
             Price = price;
             Paid = paid;
             OrderStatus = orderStatus;
+            DoctorFios = doctorFios;
+            DoctorFios = doctorFios;
         }
     }
 }
