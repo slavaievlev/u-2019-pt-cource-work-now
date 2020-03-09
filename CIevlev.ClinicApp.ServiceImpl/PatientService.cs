@@ -117,10 +117,12 @@ namespace CIevlev.ClinicApp.ServiceImpl
             var invoices = GetUnpaidInvoices(patientInvoicesReportDto.PatientId);
 
             var invoicesDocument = new PatientInvoicesDocument("Отчет " + DateTime.Now.Date + ".docx", invoices);
+            var invoicesWorkbook = new PatientInvoicesWorkbook("Отчет " + DateTime.Now.Date + ".xlsx", invoices);
             _mailService.SendFilesToPatient(patientInvoicesReportDto.PatientId, title, message,
                 new List<ExportedFile>
                 {
-                    invoicesDocument
+                    invoicesDocument,
+                    invoicesWorkbook
                 });
         }
 

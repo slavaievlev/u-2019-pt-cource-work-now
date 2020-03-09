@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Runtime.InteropServices;
-using Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
+using SIevlev.ClinicApp.Interfaces.Export;
 using SIevlev.ClinicApp.Interfaces.ViewModel;
 
 namespace CIevlev.ClinicApp.ServiceImpl.Export
 {
-    public class PatientInvoicesWorkbook
+    public class PatientInvoicesWorkbook : ExportedFile
     {
+        public string FileName { get; set; }
+        public MemoryStream FileStream { get; }
+        
         private static readonly IList<string> Header = new ReadOnlyCollection<string>(new List<string>
         {
             "ФИО врачей",
@@ -18,78 +20,48 @@ namespace CIevlev.ClinicApp.ServiceImpl.Export
             "Оплачено",
             "К оплате"
         });
-        
-        public string PathToFile { get; private set; }
 
-        public PatientInvoicesWorkbook(List<PatientInvoicesViewModel> patientInvoicesViewModels)
+        public PatientInvoicesWorkbook(string fileName, List<PatientInvoicesViewModel> patientInvoicesViewModels)
         {
+            FileName = fileName;
+            FileStream = new MemoryStream();
+            
             CreateFile(patientInvoicesViewModels);
         }
 
-        private void CreateFile(List<PatientInvoicesViewModel> patientInvoicesViewModels)
+        private void CreateFile(List<PatientInvoicesViewModel> invoices)
         {
-            Application excelApp = null;
-            Workbooks workbooks = null;
-            Workbook workbook = null;
-            Sheets pages = null;
-            Worksheet page = null;
-            try
+            using (var excelPackage = new ExcelPackage(FileStream))
             {
-                excelApp = new Application();
-                workbooks = excelApp.Workbooks;
-                workbook = workbooks.Add();
-                pages = workbook.Sheets;
-                pages.Add();
-                page = (Worksheet) pages.Item[1];
+                var page = excelPackage.Workbook.Worksheets.Add("First sheet");
 
-                InsertHeader(page);
-
-                var i = 2;
-                foreach (var invoices in patientInvoicesViewModels)
+                // Insert header
+                int j = 1;
+                foreach (var columnName in Header)
                 {
-                    String doctorFios = String.Join(", ", invoices.DoctorFios);
-
-                    page.Cells[i, 1] = doctorFios;
-                    page.Cells[i, 2] = invoices.CreateDate;
-                    page.Cells[i, 3] = invoices.Price;
-                    page.Cells[i, 4] = invoices.Paid;
-                    page.Cells[i, 5] = invoices.Price - invoices.Paid;
-
-                    i++;
+                    page.Cells[1, j].Value = columnName;
+                    j++;
                 }
-
-                PathToFile = Path.GetTempPath() + Guid.NewGuid() + ".xlsx";
-                workbook.SaveAs(PathToFile);
-            }
-            finally
-            {
-                Marshal.ReleaseComObject(page);
-                Marshal.ReleaseComObject(pages);
-                Marshal.ReleaseComObject(workbook);
-                Marshal.ReleaseComObject(workbooks);
                 
-                Marshal.ReleaseComObject(excelApp);
+                // Insert data
+                int i = 2;
+                foreach (var invoice in invoices)
+                {
+                    var doctorFios = string.Join(", ", invoice.DoctorFios);
+
+                    page.Cells[i, 1].Value = doctorFios;
+                    page.Cells[i, 2].Value = invoice.CreateDate;
+                    page.Cells[i, 3].Value = invoice.Price;
+                    page.Cells[i, 4].Value = invoice.Paid;
+                    page.Cells[i, 5].Value = invoice.Price - invoice.Paid;
+                }
+                
+                excelPackage.Save();
+                
+                // Для того чтобы при работе со стримом читали записанные данные, а не то что после записанных данных.
+                // (https://stackoverflow.com/questions/50033523/xceed-docx-returns-blank-document)
+                FileStream.Seek(0, SeekOrigin.Begin);
             }
-        }
-
-        private void InsertHeader(Worksheet page)
-        {
-            page.Cells[1, 1] = Header[0];
-            page.Cells[1, 2] = Header[1];
-            page.Cells[1, 3] = Header[2];
-            page.Cells[1, 4] = Header[3];
-            page.Cells[1, 5] = Header[4];
-        }
-        
-        public void ClearResources()
-        {
-            File.Delete(PathToFile);
-            PathToFile = null;
-        }
-
-        ~PatientInvoicesWorkbook()
-        {
-            File.Delete(PathToFile);
         }
     }
 }
