@@ -95,6 +95,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
             TextBlockPatientFio.Text = _model.FirstName + " " + _model.LastName;
             TextBlockPatientDescription.Text = _model.Login;
             TextBlockPatientBonus.Text = _model.Bonus.ToString();
+            TextBlockPatientBonusPercent.Text = _model.BonusPercent.ToString();
             TextBlockPatientStatis.Text = _model.PatientStatus;
         }
 

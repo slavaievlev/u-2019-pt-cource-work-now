@@ -59,6 +59,7 @@
                 <RowDefinition Height="25" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -70,8 +71,10 @@
             <TextBlock Grid.Column="1" Grid.Row="1" x:Name="TextBlockPatientStatis" Padding="10 5 10 0" TextAlignment="Right" Text="тест-статус" />
             <TextBlock Grid.Column="0" Grid.Row="2" Padding="10 5 10 0" Text="Бонусный счет:" />
             <TextBlock Grid.Column="1" Grid.Row="2" x:Name="TextBlockPatientBonus" Padding="10 5 10 0" TextAlignment="Right" Text="500" />
+            <TextBlock Grid.Column="0" Grid.Row="3" Padding="10 5 10 0" Text="Бонусный процент:" />
+            <TextBlock Grid.Column="1" Grid.Row="3" x:Name="TextBlockPatientBonusPercent" Padding="10 5 10 0" TextAlignment="Right" Text="99" />
             
-            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Bottom" Margin="20 0">
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Bottom" Margin="20 0">
                 <Button x:Name="ButtonChangeBonus" Height="36" Margin="1" Content="Изменить бонусный счет" 
                         Click="ButtonChangeBonus_OnClick"/>
                 

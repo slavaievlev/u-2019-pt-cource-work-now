@@ -62,7 +62,9 @@ namespace CIevlev.ClinicApp.ServiceImpl
                 Bonus = patient.Bonus,
                 Login = patient.Login,
                 PatientStatus = patient.PatientStatus.ToString(),
-                Phone = patient.Phone
+                Phone = patient.Phone,
+                Email = patient.Email,
+                BonusPercent = patient.BonusPercent
             };
         }
 
@@ -78,15 +80,18 @@ namespace CIevlev.ClinicApp.ServiceImpl
                 Bonus = patient.Bonus,
                 Login = patient.Login,
                 PatientStatus = patient.PatientStatus.ToString(),
-                Phone = patient.Phone
+                Phone = patient.Phone,
+                Email = patient.Email,
+                BonusPercent = patient.BonusPercent
             }).ToList();
         }
 
-        public void ChangeBonus(int patientId, int newBonusQuantity)
+        public void ChangeBonus(ChangeBonusDto changeBonusDto)
         {
-            var patient = _patientRepository.GetPatient(patientId);
+            var patient = _patientRepository.GetPatient(changeBonusDto.PatientId);
 
-            patient.Bonus = newBonusQuantity < 0 ? 0 : newBonusQuantity;
+            patient.Bonus = changeBonusDto.NewBonusQuantity < 0 ? 0 : changeBonusDto.NewBonusQuantity;
+            patient.BonusPercent = changeBonusDto.NewBonusPercent > 100 ? 100 : changeBonusDto.NewBonusPercent;
             
             _patientRepository.UpdatePatient(patient);
         }

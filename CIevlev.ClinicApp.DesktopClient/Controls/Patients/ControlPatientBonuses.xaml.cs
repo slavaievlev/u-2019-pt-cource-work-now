@@ -21,12 +21,15 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
             _patientViewModel = patientViewModel;
 
             TextBoxBonusQuantity.Text = _patientViewModel.Bonus.ToString();
+            TextBoxBonusPercent.Text = _patientViewModel.BonusPercent.ToString();
         }
 
         private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
         {
             var newBonus = Convert.ToInt32(TextBoxBonusQuantity.Text);
-            ApiClient.PutRequest<ResponseModel, ChangeBonusDto>("/api/Patient/ChangeBonus/" + _patientViewModel.Id, new ChangeBonusDto(newBonus));
+            var newBonusPercent = Convert.ToInt32(TextBoxBonusPercent.Text);
+            ApiClient.PutRequest<ResponseModel, ChangeBonusDto>("/api/Patient/ChangeBonus/", 
+                new ChangeBonusDto(_patientViewModel.Id, newBonus, newBonusPercent));
             
             _hostWindow.ClearContent();
         }

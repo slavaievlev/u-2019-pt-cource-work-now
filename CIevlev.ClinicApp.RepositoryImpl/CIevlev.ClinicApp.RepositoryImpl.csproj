@@ -59,6 +59,10 @@
     <Compile Include="Migrations\202002090936514_AddColumnsToDoctorTable.Designer.cs">
       <DependentUpon>202002090936514_AddColumnsToDoctorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003102042344_AddPropertiesToPatientTable.cs" />
+    <Compile Include="Migrations\202003102042344_AddPropertiesToPatientTable.Designer.cs">
+      <DependentUpon>202003102042344_AddPropertiesToPatientTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PatientRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002090936514_AddColumnsToDoctorTable.resx">
       <DependentUpon>202002090936514_AddColumnsToDoctorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102042344_AddPropertiesToPatientTable.resx">
+      <DependentUpon>202003102042344_AddPropertiesToPatientTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

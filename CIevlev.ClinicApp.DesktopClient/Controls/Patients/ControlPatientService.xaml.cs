@@ -39,6 +39,7 @@ namespace CIevlev.ClinicApp.DesktopClient.Controls.Patients
         public void ClearContent()
         {
             ContentPatientInfos.Content = null;
+            UpdatePatientList();
         }
 
         private void UpdatePatientList()

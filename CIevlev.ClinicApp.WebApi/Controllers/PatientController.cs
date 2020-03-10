@@ -22,9 +22,9 @@ namespace CIevlev.ClinicApp.WebApi.Controllers
         }
         
         [HttpPut]
-        public IHttpActionResult ChangeBonus(int id, ChangeBonusDto changeBonusDto)
+        public IHttpActionResult ChangeBonus(ChangeBonusDto changeBonusDto)
         {
-            _patientService.ChangeBonus(id, changeBonusDto.NewBonusQuantity);
+            _patientService.ChangeBonus(changeBonusDto);
             return Ok(new ResponseModel("Бонусный счет пациента изменен успешно! :)"));
         }
 

@@ -13,7 +13,7 @@ namespace SIevlev.ClinicApp.Interfaces.Services
 
         List<PatientViewModel> GetPatients();
         
-        void ChangeBonus(int patientId, int newBonusQuantity);
+        void ChangeBonus(ChangeBonusDto changeBonusDto);
 
         void BlockPatient(int patientId);
 
