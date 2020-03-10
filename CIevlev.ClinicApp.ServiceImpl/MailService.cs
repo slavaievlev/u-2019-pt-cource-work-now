@@ -24,7 +24,7 @@ namespace CIevlev.ClinicApp.ServiceImpl
             var patient = _patientRepository.GetPatient(patientId);
             
             var from = new MailAddress(ServiceEmail, "Admin");
-            var to = new MailAddress(patient.Password);    // TODO wtf?
+            var to = new MailAddress(patient.Email);
 
             var mailMessage = new MailMessage(from, to)
             {
